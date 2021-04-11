@@ -6,9 +6,9 @@
       apt:
         name:
           - build-essential
-          - llvm-7-dev
-          - lld-7
-          - clang-7
+          - llvm-8-dev
+          - lld-8
+          - clang-8
           - nasm
           - acpica-tools
           - uuid-dev
@@ -29,12 +29,12 @@
       apt: name=qemu-system-gui state=latest install_recommends=no
       when: qemu_gui_result is succeeded
 
-    - name: set llvm 7 as default
+    - name: set llvm 8 as default
       become: yes
       alternatives:
         name: "{{ item }}"
         link: "/usr/bin/{{ item }}"
-        path: "/usr/bin/{{ item }}-7"
+        path: "/usr/bin/{{ item }}-8"
       with_items:
         - llvm-PerfectShuffle
         - llvm-ar
